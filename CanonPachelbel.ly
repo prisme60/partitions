@@ -14,11 +14,11 @@
 #(set-default-paper-size "a4")
 global = { 
     \time 2/2
-    \skip 1*24  %% 1-24
+    \skip 1*99  %% 1-99
 }
 globalTempo = {
     \override Score.MetronomeMark #'transparent = ##t
-    \tempo 4 = 120  \skip 1*24 
+    \tempo 4 = 120  \skip 1*99 
 }
 \score {
 << % common
@@ -99,7 +99,7 @@ g' 4 < d' b' > < a' cis' > _~ < g' cis' >  |
 %% 20
                 
 % absTime = 72960 barStart = 72960
-< b d' > 4 d'' < cis'' e' a' > _~ < cis'' e' a' > 8 _~ [ < b' e' a' > 16 _~ < cis'' e' a' > ]  |
+< b d' > 4 d'' < cis'' e' a' > -\startTrillSpan s4*0 \stopTrillSpan _~ < cis'' e' a' > 8 _~ [ < b' e' a' > 16 _~ < cis'' e' a' > ]  |
                 
 % absTime = 76800 barStart = 76800
 < fis' d'' > 8 [ cis'' d'' d' ] cis' [ a' e' fis' ]  |
@@ -112,6 +112,201 @@ g'' 8 [ fis'' e'' g'' ] fis'' [ e'' d'' cis'' ]  |
                 
 % absTime = 88320 barStart = 88320
 b' 8 [ a' g' fis' ] e' [ g' fis' e' ]  |
+%% 25
+                
+% absTime = 92160 barStart = 92160
+d' 8 [ e' fis' g' ] a' [ e' a' g' ]  |
+                
+% absTime = 96000 barStart = 96000
+fis' 8 [ b' a' g' ] a' [ g' fis' e' ]  |
+                
+% absTime = 99840 barStart = 99840
+d' 8 [ b b' cis'' ] d'' [ cis'' b' a' ]  |
+                
+% absTime = 103680 barStart = 103680
+g' 8 [ fis' e' b' ] a' [ b' a' g' ]  |
+                
+% absTime = 107520 barStart = 107520
+< d' fis' > 4 < a' d'' fis'' > < a' cis'' e'' > 2  |
+%% 30
+                
+% absTime = 111360 barStart = 111360
+r4 < fis' b' d'' > < a' cis'' fis'' > 2  |
+                
+% absTime = 115200 barStart = 115200
+< g'' b'' > 2 < fis'' a'' >  |
+                
+% absTime = 119040 barStart = 119040
+< g'' b'' > 2 < a'' cis''' >  |
+                
+% absTime = 122880 barStart = 122880
+< fis'' d''' > 4 < fis' d'' > < e' cis'' > 2  |
+                
+% absTime = 126720 barStart = 126720
+r4 < d' b' > < fis' d'' > 2  |
+%% 35
+                
+% absTime = 130560 barStart = 130560
+< d'' b' > 2 _~ d'' 4 a' 8 _~ [ < d'' a' > ]  |
+                
+% absTime = 134400 barStart = 134400
+< b' d'' > 4 _~ < b' g'' > < cis'' e'' > _~ < cis'' a'' >  |
+                
+% absTime = 138240 barStart = 138240
+a'' 8 [ fis'' 16 g'' ] a'' 8 [ fis'' 16 g'' ] a'' [ a' b' cis'' ] d'' [ e'' fis'' g'' ]  |
+                
+% absTime = 142080 barStart = 142080
+fis'' 8 [ d'' 16 e'' ] fis'' 8 [ fis' 16 g' ] a' [ b' a' g' ] a' [ fis' g' a' ]  |
+                
+% absTime = 145920 barStart = 145920
+g' 8 [ b' 16 a' ] g' 8 [ fis' 16 e' ] fis' [ e' d' e' ] fis' [ g' a' b' ]  |
+%% 40
+                
+% absTime = 149760 barStart = 149760
+g' 8 [ b' 16 a' ] b' 8 [ cis'' 16 d'' ] a' [ b' cis'' d'' ] e'' [ fis'' g'' a'' ]  |
+                
+% absTime = 153600 barStart = 153600
+fis'' 8 [ d'' 16 e'' ] fis'' 8 [ e'' 16 d'' ] e'' [ cis'' d'' e'' ] fis'' [ e'' d'' cis'' ]  |
+                
+% absTime = 157440 barStart = 157440
+d'' 8 [ b' 16 cis'' ] d'' 8 [ d' 16 e' ] fis' [ g' fis' e' ] fis' [ d'' cis'' d'' ]  |
+                
+% absTime = 161280 barStart = 161280
+b' 8 [ d'' 16 cis'' ] b' 8 [ a' 16 g' ] a' [ g' fis' g' ] a' [ b' cis'' d'' ]  |
+                
+% absTime = 165120 barStart = 165120
+b' 8 [ d'' 16 cis'' ] d'' 8 [ cis'' 16 b' ] cis'' [ d'' e'' d'' ] cis'' [ d'' b' cis'' ]  |
+%% 45
+                
+% absTime = 168960 barStart = 168960
+< fis' a' d'' > 2 < e' a' cis'' >  |
+                
+% absTime = 172800 barStart = 172800
+< d' fis' b' > 2 < cis' fis' a' >  |
+                
+% absTime = 176640 barStart = 176640
+< b g d' > 2 < fis' cis' a' >  |
+                
+% absTime = 180480 barStart = 180480
+< b d' > 2 < cis' e' >  |
+                
+% absTime = 184320 barStart = 184320
+r4 < d' fis' a' > r < cis' e' a' >  |
+%% 50
+                
+% absTime = 188160 barStart = 188160
+r4 < b d' fis' > r < cis' fis' a' >  |
+                
+% absTime = 192000 barStart = 192000
+r4 < b d' g' > r < a d' fis' >  |
+                
+% absTime = 195840 barStart = 195840
+r4 < b d' g' > r < a' cis'' e'' >  |
+                
+% absTime = 199680 barStart = 199680
+< a' fis'' > 8 [ fis' g' fis' < cis' e' > e'' fis'' e'' ]  |
+                
+% absTime = 203520 barStart = 203520
+< b' d'' > 8 [ fis' d' b' < fis' a' > a g a ]  |
+%% 55
+                
+% absTime = 207360 barStart = 207360
+b 8 [ b' cis'' b' < fis' a' > a g a ]  |
+                
+% absTime = 211200 barStart = 211200
+b 8 [ b' a' b' < e' cis'' > cis' b cis' ]  |
+                
+% absTime = 215040 barStart = 215040
+d' 8 [ d'' e'' d'' ] cis'' [ cis' d' cis' ]  |
+                
+% absTime = 218880 barStart = 218880
+b 8 [ b' a' b' ] cis'' [ cis' fis' e' ]  |
+                
+% absTime = 222720 barStart = 222720
+d' 8 [ d'' e'' g'' ] fis'' [ fis' a' fis'' ]  |
+%% 60
+                
+% absTime = 226560 barStart = 226560
+d'' 8 [ g'' fis'' g'' ] e'' [ a' g' a' ]  |
+                
+% absTime = 230400 barStart = 230400
+R1*39 
+% absTime = 234240 barStart = 234240
+
+% absTime = 238080 barStart = 238080
+
+% absTime = 241920 barStart = 241920
+
+% absTime = 245760 barStart = 245760
+
+% absTime = 249600 barStart = 249600
+
+% absTime = 253440 barStart = 253440
+
+% absTime = 257280 barStart = 257280
+
+% absTime = 261120 barStart = 261120
+
+% absTime = 264960 barStart = 264960
+
+% absTime = 268800 barStart = 268800
+
+% absTime = 272640 barStart = 272640
+
+% absTime = 276480 barStart = 276480
+
+% absTime = 280320 barStart = 280320
+
+% absTime = 284160 barStart = 284160
+
+% absTime = 288000 barStart = 288000
+
+% absTime = 291840 barStart = 291840
+
+% absTime = 295680 barStart = 295680
+
+% absTime = 299520 barStart = 299520
+
+% absTime = 303360 barStart = 303360
+
+% absTime = 307200 barStart = 307200
+
+% absTime = 311040 barStart = 311040
+
+% absTime = 314880 barStart = 314880
+
+% absTime = 318720 barStart = 318720
+
+% absTime = 322560 barStart = 322560
+
+% absTime = 326400 barStart = 326400
+
+% absTime = 330240 barStart = 330240
+
+% absTime = 334080 barStart = 334080
+
+% absTime = 337920 barStart = 337920
+
+% absTime = 341760 barStart = 341760
+
+% absTime = 345600 barStart = 345600
+
+% absTime = 349440 barStart = 349440
+
+% absTime = 353280 barStart = 353280
+
+% absTime = 357120 barStart = 357120
+
+% absTime = 360960 barStart = 360960
+
+% absTime = 364800 barStart = 364800
+
+% absTime = 368640 barStart = 368640
+
+% absTime = 372480 barStart = 372480
+
+% absTime = 376320 barStart = 376320
+ |
                 \bar "|."
             } % Voice
         >> % Staff ends
@@ -141,21 +336,11 @@ b, 2 fis,  |
 g, 2 d,  |
                 
 % absTime = 11520 barStart = 11520
-g, 2 a,  | % invoking the partial end check 
-
-            } % Voice
-
-            \context Voice = "voice 3" {
-                \override Voice.TextScript #'padding = #2.0
-                \override MultiMeasureRest #'expand-limit = 1
-
-                \skip 1*4 
+g, 2 a,  |
 %% 5
                 
 % absTime = 15360 barStart = 15360
-\clef "bass"
-                \key d \major
-                d 2 a,  |
+d 2 a,  |
                 
 % absTime = 19200 barStart = 19200
 b, 2 fis,  |
@@ -164,8 +349,297 @@ b, 2 fis,  |
 g, 2 d,  |
                 
 % absTime = 26880 barStart = 26880
-g, 2 a,  | % invoking the partial end check 
+g, 2 a,  |
+                
+% absTime = 30720 barStart = 30720
+d 2 a,  |
+%% 10
+                
+% absTime = 34560 barStart = 34560
+b, 2 fis,  |
+                
+% absTime = 38400 barStart = 38400
+g, 2 d,  |
+                
+% absTime = 42240 barStart = 42240
+g, 2 a,  |
+                
+% absTime = 46080 barStart = 46080
+d 2 a,  |
+                
+% absTime = 49920 barStart = 49920
+b, 2 fis,  |
+%% 15
+                
+% absTime = 53760 barStart = 53760
+g, 2 d,  |
+                
+% absTime = 57600 barStart = 57600
+g, 2 a,  |
+                
+% absTime = 61440 barStart = 61440
+d 2 a,  |
+                
+% absTime = 65280 barStart = 65280
+b, 2 fis,  |
+                
+% absTime = 69120 barStart = 69120
+g, 2 d,  |
+%% 20
+                
+% absTime = 72960 barStart = 72960
+g, 2 a,  |
+                
+% absTime = 76800 barStart = 76800
+d 2 a,  |
+                
+% absTime = 80640 barStart = 80640
+b, 2 fis,  |
+                
+% absTime = 84480 barStart = 84480
+g, 2 d,  |
+                
+% absTime = 88320 barStart = 88320
+g, 2 a,  |
+%% 25
+                
+% absTime = 92160 barStart = 92160
+d 2 a,  |
+                
+% absTime = 96000 barStart = 96000
+b, 2 fis,  |
+                
+% absTime = 99840 barStart = 99840
+g, 2 d,  |
+                
+% absTime = 103680 barStart = 103680
+g, 2 a,  |
+                
+% absTime = 107520 barStart = 107520
+d 2 a,  |
+%% 30
+                
+% absTime = 111360 barStart = 111360
+b, 2 fis,  |
+                
+% absTime = 115200 barStart = 115200
+g, 2 d,  |
+                
+% absTime = 119040 barStart = 119040
+g, 2 a,  |
+                
+% absTime = 122880 barStart = 122880
+d 2 a,  |
+                
+% absTime = 126720 barStart = 126720
+b, 2 fis,  |
+%% 35
+                
+% absTime = 130560 barStart = 130560
+g, 2 d,  |
+                
+% absTime = 134400 barStart = 134400
+g, 2 a,  |
+                
+% absTime = 138240 barStart = 138240
+d 2 a,  |
+                
+% absTime = 142080 barStart = 142080
+b, 2 fis,  |
+                
+% absTime = 145920 barStart = 145920
+g, 2 d,  |
+%% 40
+                
+% absTime = 149760 barStart = 149760
+g, 2 a,  |
+                
+% absTime = 153600 barStart = 153600
+d 2 a,  |
+                
+% absTime = 157440 barStart = 157440
+b, 2 fis,  |
+                
+% absTime = 161280 barStart = 161280
+g, 2 d,  |
+                
+% absTime = 165120 barStart = 165120
+g, 2 a,  |
+%% 45
+                
+% absTime = 168960 barStart = 168960
+d 2 a,  |
+                
+% absTime = 172800 barStart = 172800
+b, 2 fis,  |
+                
+% absTime = 176640 barStart = 176640
+g, 2 d,  |
+                
+% absTime = 180480 barStart = 180480
+g, 2 a,  |
+                
+% absTime = 184320 barStart = 184320
+d 2 a,  |
+%% 50
+                
+% absTime = 188160 barStart = 188160
+b, 2 fis,  |
+                
+% absTime = 192000 barStart = 192000
+g, 2 d,  |
+                
+% absTime = 195840 barStart = 195840
+g, 2 a,  |
+                
+% absTime = 199680 barStart = 199680
+d 2 a,  |
+                
+% absTime = 203520 barStart = 203520
+b, 2 fis,  |
+%% 55
+                
+% absTime = 207360 barStart = 207360
+g, 2 d,  |
+                
+% absTime = 211200 barStart = 211200
+g, 2 a,  |
+                
+% absTime = 215040 barStart = 215040
+d 2 a,  |
+                
+% absTime = 218880 barStart = 218880
+b, 2 fis,  |
+                
+% absTime = 222720 barStart = 222720
+g, 2 d,  |
+%% 60
+                
+% absTime = 226560 barStart = 226560
+g, 2 a,  |
+                
+% absTime = 230400 barStart = 230400
+d 2 a,  |
+                
+% absTime = 234240 barStart = 234240
+b, 2 fis,  |
+                
+% absTime = 238080 barStart = 238080
+g, 2 d,  |
+                
+% absTime = 241920 barStart = 241920
+g, 2 a,  |
+%% 65
+                
+% absTime = 245760 barStart = 245760
+d 2 a,  |
+                
+% absTime = 249600 barStart = 249600
+b, 2 fis,  |
+                
+% absTime = 253440 barStart = 253440
+g, 2 d,  |
+                
+% absTime = 257280 barStart = 257280
+g, 2 a,  |
+                
+% absTime = 261120 barStart = 261120
+d 2 a,  |
+%% 70
+                
+% absTime = 264960 barStart = 264960
+b, 2 fis,  |
+                
+% absTime = 268800 barStart = 268800
+g, 2 d,  |
+                
+% absTime = 272640 barStart = 272640
+g, 2 a,  |
+                
+% absTime = 276480 barStart = 276480
+d 2 a,  |
+                
+% absTime = 280320 barStart = 280320
+b, 2 fis,  |
+%% 75
+                
+% absTime = 284160 barStart = 284160
+g, 2 d,  |
+                
+% absTime = 288000 barStart = 288000
+g, 2 a,  |
+                
+% absTime = 291840 barStart = 291840
+d 2 a,  |
+                
+% absTime = 295680 barStart = 295680
+b, 2 fis,  |
+                
+% absTime = 299520 barStart = 299520
+g, 2 d,  |
+%% 80
+                
+% absTime = 303360 barStart = 303360
+g, 2 a,  |
+                
+% absTime = 307200 barStart = 307200
+d 2 a,  |
+                
+% absTime = 311040 barStart = 311040
+b, 2 fis,  |
+                
+% absTime = 314880 barStart = 314880
+g, 2 d,  |
+                
+% absTime = 318720 barStart = 318720
+g, 2 a,  |
+%% 85
+                
+% absTime = 322560 barStart = 322560
+d 2 a,  |
+                
+% absTime = 326400 barStart = 326400
+b, 2 fis,  |
+                
+% absTime = 330240 barStart = 330240
+g, 2 d,  |
+                
+% absTime = 334080 barStart = 334080
+g, 2 a,  |
+                
+% absTime = 337920 barStart = 337920
+d 2 a,  |
+%% 90
+                
+% absTime = 341760 barStart = 341760
+b, 2 fis,  |
+                
+% absTime = 345600 barStart = 345600
+g, 2 d,  |
+                
+% absTime = 349440 barStart = 349440
+g, 2 a,  |
+                
+% absTime = 353280 barStart = 353280
+d 2 a,  |
+                
+% absTime = 357120 barStart = 357120
+b, 2 fis,  |
+%% 95
+                
+% absTime = 360960 barStart = 360960
+g, 2 d,  |
+                
+% absTime = 364800 barStart = 364800
+g, 2 a,  |
+                
+% absTime = 368640 barStart = 368640
+R1*3 
+% absTime = 372480 barStart = 372480
 
+% absTime = 376320 barStart = 376320
+ |
+                \bar "|."
             } % Voice
         >> % Staff (final) ends
 
