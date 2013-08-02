@@ -51,26 +51,26 @@ globalTempo = {
 %% 5
                 
 % absTime = 15360 barStart = 15360
-fis'' 2 e''  |
+fis'' 2 _3 e''  |
                 
 % absTime = 19200 barStart = 19200
-d'' 2 cis''  |
+d'' 2 _1 cis'' _2  |
                 
 % absTime = 23040 barStart = 23040
-b' 2 a'  |
+b' 2 a' _2  |
                 
 % absTime = 26880 barStart = 26880
-b' 2 cis''  |
+b' 2 _1 cis''  |
                 
 % absTime = 30720 barStart = 30720
-< d'' fis'' > 2 < cis'' e'' >  |
+< d'' fis'' > 2 _3_5 < cis'' e'' >  |
 %% 10
                 
 % absTime = 34560 barStart = 34560
-< b' d'' > 2 < a' cis'' >  |
+< b' d'' > 2 < a' cis'' > _2_4  |
                 
 % absTime = 38400 barStart = 38400
-< g' b' > 2 < fis' a' >  |
+< g' b' > 2 < fis' a' > _2_3  |
                 
 % absTime = 42240 barStart = 42240
 < g' b' > 2 < e' cis'' >  |
@@ -392,16 +392,16 @@ d'' 8 [ < d' b' > 16 a' ] < g' b' > 8 [ < e' cis'' > < fis' d'' > fis'' 16 e'' ]
 % absTime = 0 barStart = 0
 \clef "bass"
                 \key d \major
-                d 2 a,  |
+                d 2 _1 a, _3  |
                 
 % absTime = 3840 barStart = 3840
-b, 2 fis,  |
+b, 2 _1 fis, _3  |
                 
 % absTime = 7680 barStart = 7680
-g, 2 d,  |
+g, 2 _2 d, _5  |
                 
 % absTime = 11520 barStart = 11520
-g, 2 a,  |
+g, 2 _3 a, _2  |
 %% 5
                 
 % absTime = 15360 barStart = 15360
