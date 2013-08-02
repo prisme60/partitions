@@ -3,9 +3,11 @@
 % point and click debugging is disabled
 #(ly:set-option 'point-and-click #f)
 \header {
-    copyright = "Copyright (c) xxxx Copyright Holder"
-    subtitle = "not yet subtitled"
-    title = "Not Yet Titled"
+    arranger = "Arrangement Hans-Günter Heurmann"
+    composer = "Johann Pachelbel (1653-1706)"
+    copyright = "Copyright (c) C. FOUCHER Copyright Holder"
+    subtitle = "sur une base obstinée"
+    title = "CANON"
     tagline = "Created using Rosegarden 1.7.3 and LilyPond"
 }
 #(set-global-staff-size 20)
@@ -139,11 +141,21 @@ b, 2 fis,  |
 g, 2 d,  |
                 
 % absTime = 11520 barStart = 11520
-g, 2 a,  |
+g, 2 a,  | % invoking the partial end check 
+
+            } % Voice
+
+            \context Voice = "voice 3" {
+                \override Voice.TextScript #'padding = #2.0
+                \override MultiMeasureRest #'expand-limit = 1
+
+                \skip 1*4 
 %% 5
                 
 % absTime = 15360 barStart = 15360
-d 2 a,  |
+\clef "bass"
+                \key d \major
+                d 2 a,  |
                 
 % absTime = 19200 barStart = 19200
 b, 2 fis,  |
@@ -152,59 +164,8 @@ b, 2 fis,  |
 g, 2 d,  |
                 
 % absTime = 26880 barStart = 26880
-g, 2 a,  |
-                
-% absTime = 30720 barStart = 30720
-d 2 a,  |
-%% 10
-                
-% absTime = 34560 barStart = 34560
-b, 2 fis,  |
-                
-% absTime = 38400 barStart = 38400
-g, 2 d,  |
-                
-% absTime = 42240 barStart = 42240
-g, 2 a,  |
-                
-% absTime = 46080 barStart = 46080
-d 2 a,  |
-                
-% absTime = 49920 barStart = 49920
-b, 2 fis,  |
-%% 15
-                
-% absTime = 53760 barStart = 53760
-g, 2 d,  |
-                
-% absTime = 57600 barStart = 57600
-g, 2 a,  |
-                
-% absTime = 61440 barStart = 61440
-d 2 a,  |
-                
-% absTime = 65280 barStart = 65280
-b, 2 fis,  |
-                
-% absTime = 69120 barStart = 69120
-g, 2 d,  |
-%% 20
-                
-% absTime = 72960 barStart = 72960
-g, 2 a,  |
-                
-% absTime = 76800 barStart = 76800
-e 2 b,  |
-                
-% absTime = 80640 barStart = 80640
-cis 2 fis,  |
-                
-% absTime = 84480 barStart = 84480
-a, 2 e,  |
-                
-% absTime = 88320 barStart = 88320
-a, 2 b,  |
-                \bar "|."
+g, 2 a,  | % invoking the partial end check 
+
             } % Voice
         >> % Staff (final) ends
 
