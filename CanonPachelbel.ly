@@ -10,7 +10,7 @@
     title = "CANON"
     tagline = "Créé avec LilyPond"
 }
-#(set-global-staff-size 20)
+#(set-global-staff-size 25)
 #(set-default-paper-size "a4")
 global = { 
     \time 2/2
@@ -18,21 +18,19 @@ global = {
 }
 globalTempo = {
     \override Score.MetronomeMark #'transparent = ##t
-    \tempo 4 = 120  \skip 1*105 
+    \tempo 2 = 40  \skip 1*105 
 }
 \score {
 << % common
         % force offset of colliding notes in chords:
         \override Score.NoteColumn #'force-hshift = #1.0
 
-        \context Staff = "Main droite" << 
-            \set Staff.instrumentName = \markup { \column { "Main droite " } }
-            \set Score.skipBars = ##t
-            \set Staff.printKeyCancellation = ##f
-            \new Voice \global
-            \new Voice \globalTempo
+        \tempo "Andantino" 2 = 40
 
-            \context Voice = "voice 1" {
+        \new PianoStaff << 
+          \set PianoStaff.instrumentName = #"Piano"
+          
+            \new Staff {
                 \override Voice.TextScript #'padding = #2.0
                 \override MultiMeasureRest #'expand-limit = 1
 
@@ -51,45 +49,46 @@ globalTempo = {
 %% 5
                 
 % absTime = 15360 barStart = 15360
-fis'' 2 _3 e''  |
+fis'' 2 ^3_\markup { \italic "espressivo" }
+ e''  |
                 
 % absTime = 19200 barStart = 19200
-d'' 2 _1 cis'' _2  |
+d'' 2 ^1 cis'' ^2  |
                 
 % absTime = 23040 barStart = 23040
-b' 2 a' _2  |
+b' 2 a' ^2  |
                 
 % absTime = 26880 barStart = 26880
-b' 2 _1 cis''  |
+b' 2 ^1 cis''  |
                 
 % absTime = 30720 barStart = 30720
-< d'' fis'' > 2 _3_5 < cis'' e'' >  |
+< d'' fis'' > 2 ^3^5 < cis'' e'' >  |
 %% 10
                 
 % absTime = 34560 barStart = 34560
-< b' d'' > 2 < a' cis'' > _2_4  |
+< b' d'' > 2 < a' cis'' > ^2^4  |
                 
 % absTime = 38400 barStart = 38400
-< g' b' > 2 < fis' a' > _2_3  |
+< g' b' > 2 < fis' a' > ^2^3  |
                 
 % absTime = 42240 barStart = 42240
-< g' b' > 2 _1_4 < e' cis'' > _1_5  |
+< g' b' > 2 ^1^4 < e' cis'' > ^1^5  |
                 
 % absTime = 46080 barStart = 46080
   << { \voiceOne
-       s4 fis' 4 _3 a' 4 _5 g' 4
+       s4 fis' 4 ^3 a' 4 ^5 g' 4
      }
      \new Voice
      { \voiceTwo
-       d' 2 _1 cis' 2 _2
+       d' 2 _1 \mp cis' 2 _2
      }
   >> \oneVoice |
 
                 
 % absTime = 49920 barStart = 49920
-fis' 4 _3 < b d' > _1_2
+fis' 4 ^3 < b d' > ^1^2
   << { \voiceOne
-       fis' 4 _5 e' 4 _4
+       fis' 4 ^5 e' 4 ^4
      }
      \new Voice
      { \voiceTwo
@@ -100,9 +99,9 @@ fis' 4 _3 < b d' > _1_2
 %% 15
                 
 % absTime = 53760 barStart = 53760
-d' 4 _3 b 4 _2 
+d' 4 ^3 b 4 ^2 
   << { \voiceOne
-       d' 4 _3 a'
+       d' 4 ^3 a'
      }
      \new Voice
      { \voiceTwo
@@ -111,9 +110,9 @@ d' 4 _3 b 4 _2
   >> \oneVoice |
                 
 % absTime = 57600 barStart = 57600
-g' 4 _3 < d' b' > _1
+g' 4 ^3 < d' b' > ^1
   << { \voiceOne
-       a' 4 _5 g' 4
+       a' 4 ^5 g' 4
      }
      \new Voice
      { \voiceTwo
@@ -122,19 +121,19 @@ g' 4 _3 < d' b' > _1
   >> \oneVoice |
                 
 % absTime = 61440 barStart = 61440
-< d' fis' > 4 _1_3 d' < cis' e' > _1_2 cis'' _5  |
+< d' fis' > 4 ^1^3 d' < cis' e' > ^1^2 cis'' ^5  |
                 
 % absTime = 65280 barStart = 65280
-< b' d'' > 4 _1_2 fis'' _4 < fis'' a'' > _3_5 a'  |
+< b' d'' > 4 ^1^2 fis'' ^4 < fis'' a'' > ^3^5 a'  |
                 
 % absTime = 69120 barStart = 69120
-< g' b' > 4 _2_4 g' _1 < fis' a' > _2_4 fis' _3  |
+< g' b' > 4 ^2^4 g' ^1 < fis' a' > ^2^4 fis' ^3  |
 %% 20
                 
 % absTime = 72960 barStart = 72960
-< b d' > 4 _1_2 d''
+< b d' > 4 ^1^2 d''
   << { \voiceOne
-       cis'' 4 ~ -\startTrillSpan s4*0 \stopTrillSpan_4 cis'' 8 [ b' 16 cis'' ]
+       cis'' 4 ~ -\startTrillSpan s4*0 \stopTrillSpan^4 cis'' 8 b' 16 cis''
      }
      \new Voice
      { \voiceTwo
@@ -143,53 +142,53 @@ g' 4 _3 < d' b' > _1
   >> \oneVoice |
        
 % absTime = 76800 barStart = 76800
-< fis' d'' > 8 _2_5 [ cis'' d'' d' _1 ] cis' _2 [ a' e' _2 fis' ]  |
+< fis' d'' > 8 ^2^5 \mf cis'' d'' d' ^1 cis' ^2 a' e' ^2 fis'  |
                 
 % absTime = 80640 barStart = 80640
-d' 8 _1 [ d'' _5 cis'' _3 b' _1 ] cis'' _2 [ fis'' _3 a'' _4 b'' _5 ]  |
+d' 8 ^1 d'' ^5 cis'' ^3 b' ^1 cis'' ^2 fis'' ^3 a'' ^4 b'' ^5  |
                 
 % absTime = 84480 barStart = 84480
-g'' 8 _4 [ fis'' e'' g'' _4 ] fis'' _3 [ e'' d'' cis'' _4 ]  |
+g'' 8 ^4 fis'' e'' g'' ^4 fis'' ^3 e'' d'' cis'' ^4  |
                 
 % absTime = 88320 barStart = 88320
-b' 8 _3 [ a' g' _1 fis' _3 ] e' [ g' _4 fis' e' ]  |
+b' 8 ^3 a' g' ^1 fis' ^3 e' g' ^4 fis' e'  |
 %% 25
                 
 % absTime = 92160 barStart = 92160
-d' 8 _1 [ e' fis' g' ] a' _5 [ e' _1 a' _4 g' _3 ]  |
+d' 8 ^1 e' fis' g' a' ^5 e' ^1 a' ^4 g' ^3  |
                 
 % absTime = 96000 barStart = 96000
-fis' 8 _2 [ b' a' g' ] a' _4 [ g' fis' e' ]  |
+fis' 8 ^2 b' a' g' a' ^4 g' fis' e'  |
                 
 % absTime = 99840 barStart = 99840
-d' 8 _2 [ b _1 b' _3 cis'' ] d'' [ cis'' b' a' _1 ]  |
+d' 8 ^2 b ^1 b' ^3 cis'' d'' cis'' b' a' ^1  |
                 
 % absTime = 103680 barStart = 103680
-g' 8 _3 [ fis' e' _1 b' _5 ] a' _4 [ b' _5 a' g' ]  |
+g' 8 ^3 fis' e' ^1 b' ^5 a' ^4 b' ^5 a' g'  |
                 
 % absTime = 107520 barStart = 107520
-< d' fis' > 4 _1_2 < a' d'' fis'' > _1_3_5 < a' cis'' e'' > 2 _1_2_4  |
+< d' fis' > 4 ^1^2 < a' d'' fis'' > ^1^3^5 < a' cis'' e'' > 2 ^1^2^4  |
 %% 30
                 
 % absTime = 111360 barStart = 111360
 r4 < fis' b' d'' > < a' cis'' fis'' > 2  |
                 
 % absTime = 115200 barStart = 115200
-< g'' b'' > 2 _2_4 < fis'' a'' > _1_2  |
+< g'' b'' > 2 ^2^4 < fis'' a'' > ^1^2  |
                 
 % absTime = 119040 barStart = 119040
-< g'' b'' > 2 _2_4 < a'' cis''' > _3_5  |
+< g'' b'' > 2 ^2^4 < a'' cis''' > ^3^5  |
                 
 % absTime = 122880 barStart = 122880
-< fis'' d''' > 4 _1_5 < fis' d'' > _2_5 < e' cis'' > 2 _1_4  |
+< fis'' d''' > 4 ^1^5 < fis' d'' > ^2^5 < e' cis'' > 2 ^1^4  |
                 
 % absTime = 126720 barStart = 126720
-r4 < d' b' > _1_4 < fis' d'' > 2 _2_5  |
+r4 < d' b' > ^1^4 < fis' d'' > 2 ^2^5  |
 %% 35
                 
 % absTime = 130560 barStart = 130560
   << { \voiceOne
-       d'' 2.. _4 d'' 8 _3
+       d'' 2.. ^4 d'' 8 ^3
      }
      \new Voice
      { \voiceTwo
@@ -199,7 +198,7 @@ r4 < d' b' > _1_4 < fis' d'' > 2 _2_5  |
                 
 % absTime = 134400 barStart = 134400
   << { \voiceOne
-       d'' 4 _2 g'' e'' _3 a''
+       d'' 4 ^2 g'' e'' ^3 a''
      }
      \new Voice
      { \voiceTwo
@@ -208,33 +207,33 @@ r4 < d' b' > _1_4 < fis' d'' > 2 _2_5  |
   >> \oneVoice |
                 
 % absTime = 138240 barStart = 138240
-a'' 8 _5 [ fis'' 16 _2 g'' _3 ] a'' 8 _5 [ fis'' 16 g'' ] a'' _5 [ a' _1 b' cis'' ] d'' _1 [ e'' fis'' g'' ]  |
+a'' 8 ^5 fis'' 16 ^2 g'' ^3 a'' 8 ^5 fis'' 16 g'' a'' ^5 a' ^1 b' cis'' d'' ^1 e'' fis'' g''  |
                 
 % absTime = 142080 barStart = 142080
-fis'' 8 _3 [ d'' 16 e'' ] fis'' 8 [ fis' 16 _2 g' ] a' [ b' a' g' ] a' [ fis' g' a' ]  |
+fis'' 8 ^3 d'' 16 e'' fis'' 8 fis' 16 ^2 g' a' b' a' g' a' fis' g' a'  |
                 
 % absTime = 145920 barStart = 145920
-g' 8 _3 [ b' 16 a' ] g' 8 [ fis' 16 _3 e' _2 ] fis' _3 [ e' _2 d' _1 e' ] fis' [ g' _1 a' b' ]  |
+g' 8 ^3 b' 16 a' g' 8 fis' 16 ^3 e' ^2 fis' ^3 e' ^2 d' ^1 e' fis' g' ^1 a' b'  |
 %% 40
                 
 % absTime = 149760 barStart = 149760
-g' 8 _1 [ b' 16 a' ] b' 8 [ cis'' 16 _3 d'' _4 ] a' _1 [ b' cis'' d'' _1 ] e'' [ fis'' g'' a'' ]  |
+g' 8 ^1 b' 16 a' b' 8 cis'' 16 ^3 d'' ^4 a' ^1 b' cis'' d'' ^1 e'' fis'' g'' a''  |
                 
 % absTime = 153600 barStart = 153600
-fis'' 8 _3 [ d'' 16 e'' ] fis'' 8 [ e'' 16 _2 d'' _1 ] e'' _3 [ cis'' _2 d'' _1 e'' _3 ] fis'' _4 [ e'' _3 d'' _1 cis'' _2 ]  |
+fis'' 8 ^3 d'' 16 e'' fis'' 8 e'' 16 ^2 d'' ^1 e'' ^3 cis'' ^2 d'' ^1 e'' ^3 fis'' ^4 e'' ^3 d'' ^1 cis'' ^2  |
                 
 % absTime = 157440 barStart = 157440
-d'' 8 _3 [ b' 16 cis'' ] d'' 8 [ d' 16 _1 e' ] fis' [ g' fis' e' ] fis' _1 [ d'' _5 cis'' _4 d'' _5 ]  |
+d'' 8 ^3 b' 16 cis'' d'' 8 d' 16 ^1 e' fis' g' fis' e' fis' ^1 d'' ^5 cis'' ^4 d'' ^5  |
                 
 % absTime = 161280 barStart = 161280
-b' 8 _3 [ d'' 16 cis'' ] b' 8 [ a' 16 _3 g' _1 ] a' _4 [ g' fis' g' _1 ] a' [ b' cis'' d'' ]  |
+b' 8 ^3 d'' 16 cis'' b' 8 a' 16 ^3 g' ^1 a' ^4 g' fis' g' ^1 a' b' cis'' d''  |
                 
 % absTime = 165120 barStart = 165120
-b' 8 _2 [ d'' 16 cis'' ] d'' 8 [ cis'' 16 b' ] cis'' _3 [ d'' e'' d'' ] cis'' [ d'' b' cis'' _4 ]  |
+b' 8 ^2 d'' 16 cis'' d'' 8 cis'' 16 b' cis'' ^3 d'' e'' d'' cis'' d'' b' cis'' ^4  |
 %% 45
                 
 % absTime = 168960 barStart = 168960
-< fis' a' d'' > 2 _1_2_5 < e' a' cis'' >  |
+< fis' a' d'' > 2 ^1^2^5 < e' a' cis'' >  |
                 
 % absTime = 172800 barStart = 172800
 < d' fis' b' > 2 < cis' fis' a' >  |
@@ -246,97 +245,97 @@ b' 8 _2 [ d'' 16 cis'' ] d'' 8 [ cis'' 16 b' ] cis'' _3 [ d'' e'' d'' ] cis'' [ 
 < b d' > 2 < cis' e' >  |
                 
 % absTime = 184320 barStart = 184320
-r4 < d' fis' a' > _1_3_5 r < cis' e' a' >  |
+r4 < d' fis' a' > ^1^3^5 r < cis' e' a' >  |
 %% 50
                 
 % absTime = 188160 barStart = 188160
-r4 < b d' fis' > _1_2_4 r < cis' fis' a' > _1_3_5  |
+r4 < b d' fis' > ^1^2^4 r < cis' fis' a' > ^1^3^5  |
                 
 % absTime = 192000 barStart = 192000
-r4 < b d' g' > _1_2_5 r < a d' fis' > _1_3_5  |
+r4 < b d' g' > ^1^2^5 r < a d' fis' > ^1^3^5  |
                 
 % absTime = 195840 barStart = 195840
 r4 < b d' g' > r < a' cis'' e'' >  |
                 
 % absTime = 199680 barStart = 199680
-< a' fis'' > 8 _1_5 [ fis' _3 g' fis' < cis' e' > _1_2 e'' _5 fis'' _4 e'' _3 ]  |
+< a' fis'' > 8 ^1^5 fis' ^3 g' fis' < cis' e' > ^1^2 e'' ^5 fis'' ^4 e'' ^3  |
                 
 % absTime = 203520 barStart = 203520
-< b' d'' > 8 _1_2 [ fis' _2 d' b' _5 < fis' a' > _2_4 a _1 g _2 a _3 ]  |
+< b' d'' > 8 ^1^2 fis' ^2 d' b' ^5 < fis' a' > ^2^4 a ^1 g ^2 a ^3  |
 %% 55
                 
 % absTime = 207360 barStart = 207360
-b 8 _1 [ b' _5 cis'' _4 b' _3 < fis' a' > _1_2 a _1 g _2 a _3 ]  |
+b 8 ^1 b' ^5 cis'' ^4 b' ^3  < fis' a' > ^1^2 a ^1 g ^2 a ^3  |
                 
 % absTime = 211200 barStart = 211200
-b 8 _1 [ b' _5 a' _3 b' _4 < e' cis'' > _1_5 cis' _2 b cis' ]  |
+b 8 ^1  b' ^5 a' ^3 b' ^4 < e' cis'' > ^1^5 cis' ^2 b cis'  |
                 
 % absTime = 215040 barStart = 215040
-d' 8 _1 [ d'' _4 e'' d'' ] cis'' _3 [ cis' _1 d' _3 cis' _2 ]  |
+d' 8 ^1 d'' ^4 e'' d''  cis'' ^3  cis' ^1 d' ^3 cis' ^2  |
                 
 % absTime = 218880 barStart = 218880
-b 8 [ b' _5 a' _3 b' ] cis'' _5 [ cis' _1 fis' _3 e' ]  |
+b 8 b' ^5 a' ^3 b' cis'' ^5 cis' ^1 fis' ^3 e'  |
                 
 % absTime = 222720 barStart = 222720
-d' 8 _1 [ d'' _5 e'' g'' ] fis'' _4 [ fis' a' fis'' _5 ]  |
+d' 8 ^1 d'' ^5 e'' g'' fis'' ^4 fis' a' fis'' ^5  |
 %% 60
                 
 % absTime = 226560 barStart = 226560
-d'' 8 [ g'' fis'' g'' ] e'' [ a' g' a' ]  |
+d'' 8 g'' fis'' g'' e'' a' g' a'  |
                 
 % absTime = 230400 barStart = 230400
-r8 [ < fis' d'' > _1_4 e'' d'' ] < e' cis'' > _1_3 [ cis' _2 d' _3 cis' ]  |
+r8 < fis' d'' > ^1^4 e'' d'' < e' cis'' > ^1^3 cis' ^2 d' ^3 cis'  |
                 
 % absTime = 234240 barStart = 234240
-d' 8 _1 [ b' _5 a' _3 b' ] < a' cis'' > _3_5 [ cis' fis' e' ]  |
+d' 8 ^1  b' ^5 a' ^3 b'  < a' cis'' > ^3^5 cis' fis' e'   |
                 
 % absTime = 238080 barStart = 238080
-d' 8 [ d'' e'' g'' ] < d'' fis'' > _2_4 [ fis' a' fis'' ]  |
+d' 8 d'' e'' g'' < d'' fis'' > ^2^4  fis' a' fis''  |
                 
 % absTime = 241920 barStart = 241920
-< b' d'' > 8 _1_2 [ g'' fis'' g'' ] < cis'' e'' > _2_3 [ a' _1 g' _2 a' _3 ]  |
+< b' d'' > 8 ^1^2 g'' fis'' g'' < cis'' e'' > ^2^3 a' ^1 g' ^2 a' ^3  |
 %% 65
                 
 % absTime = 245760 barStart = 245760
-r8 [ < a' d'' fis'' > _1_3_5 < a' d'' fis'' > < a' d'' fis'' > ] r [ < a' cis'' e'' > < a' cis'' e'' > < a' cis'' e'' > ]  |
+r8 < a' d'' fis'' > ^1^3^5 < a' d'' fis'' > < a' d'' fis'' > r < a' cis'' e'' > < a' cis'' e'' > < a' cis'' e'' >  |
                 
 % absTime = 249600 barStart = 249600
-r8 [ < fis' b' d'' > < fis' b' d'' > < fis' b' d'' > ] r [ < cis'' fis'' a'' > < cis'' fis'' a'' > < cis'' fis'' a'' > ]  |
+r8 < fis' b' d'' > < fis' b' d'' > < fis' b' d'' > r < cis'' fis'' a'' > < cis'' fis'' a'' > < cis'' fis'' a'' >  |
                 
 % absTime = 253440 barStart = 253440
-r8 [ < d'' g'' b'' > < d'' g'' b'' > < d'' g'' b'' > ] r [ < d'' fis'' a'' > < d'' fis'' a'' > < d'' fis'' a'' > ]  |
+r8 < d'' g'' b'' > < d'' g'' b'' > < d'' g'' b'' > r < d'' fis'' a'' > < d'' fis'' a'' > < d'' fis'' a'' >  |
                 
 % absTime = 257280 barStart = 257280
-r8 [ < g'' b'' > _2_4 < g'' b'' > < g'' b'' > ] < e'' cis''' > _1_5 [ < a' cis'' > _2_4 < g' cis'' > _1_4 < a' cis'' > ]  |
+r8 < g'' b'' > ^2^4 < g'' b'' > < g'' b'' > < e'' cis''' > ^1^5 < a' cis'' > ^2^4 < g' cis'' > ^1^4 < a' cis'' >  |
                 
 % absTime = 261120 barStart = 261120
-d'' 8 _5 [ d' 16 e' ] fis' 8 [ d' cis' _2 cis'' 16 _3 d'' ] e'' 8 [ cis'' ]  |
+d'' 8 ^5 d' 16 e' fis' 8 d' cis' ^2 cis'' 16 ^3 d'' e'' 8 cis''  |
 %% 70
                 
 % absTime = 264960 barStart = 264960
-b' 8 [ b 16 _1 cis' ] d' 8 [ b cis' _2 a' 16 g' ] fis' 8 [ e' ]  |
+b' 8 b 16 ^1 cis' d' 8 b cis' ^2 a' 16 g' fis' 8 e'  |
                 
 % absTime = 268800 barStart = 268800
-d' 8 _1 [ g' 16 fis' ] e' 8 [ g' fis' _3 d' 16 e' ] fis' 8 [ a' ]  |
+d' 8 ^1 g' 16 fis' e' 8 g' fis' ^3 d' 16 e' fis' 8 a'  |
                 
 % absTime = 272640 barStart = 272640
-g' 8 [ b' 16 _5 a' ] g' 8 [ fis' e' a' 16 g' ] fis' 8 [ e' ]  |
+g' 8 b' 16 ^5 a' g' 8 fis' e' a' 16 g' fis' 8 e'  |
                 
 % absTime = 276480 barStart = 276480
-< d' fis' > 8 _1_2 [ d'' 16 _5 cis'' ] d'' 8 [ fis' _2 < cis' a' > _1_3 a' 16 b' ] cis'' 8 [ a' ]  |
+< d' fis' > 8 ^1^2 d'' 16 ^5 cis'' d'' 8 fis' ^2 < cis' a' > ^1^3 a' 16 b' cis'' 8 a'  |
                 
 % absTime = 280320 barStart = 280320
-< d' fis' > 8 _1_2 [ d'' 16 _2 e'' ] fis'' 8 [ d'' _2 < a' fis'' > _1_5 fis'' 16 e'' ] d'' 8 [ cis'' ]  |
+< d' fis' > 8 ^1^2 d'' 16 ^2 e'' fis'' 8 d'' ^2 < a' fis'' > ^1^5 fis'' 16 e'' d'' 8 cis''  |
 %% 75
                 
 % absTime = 284160 barStart = 284160
-d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'' > _2_5 fis'' 16 e'' ] d'' 8 [ < a' fis'' > ]  |
+d'' 8 < d' b' > 16 ^1^5 a' ^3 < g' b' > 8 ^2^4 < e' cis'' > ^1^5 < fis' d'' > ^2^5 fis'' 16 e'' d'' 8 < a' fis'' >  |
                 
 % absTime = 288000 barStart = 288000
-< b' g'' > 8 [ d'' 16 _4 cis'' ] b' 8 [ b' < e' a' > < cis' e' > ] < cis' a' > [ < cis' a' > ]  |
+< b' g'' > 8 d'' 16 ^4 cis'' b' 8 b' < e' a' > < cis' e' > < cis' a' > < cis' a' >  |
                 
 % absTime = 291840 barStart = 291840
-< d' fis' a' > 2 _1_3_5 r4 < cis' e' a' >  |
+< d' fis' a' > 2 ^1^3^5 r4 < cis' e' a' >  |
                 
 % absTime = 295680 barStart = 295680
 < fis b d' > 2 r4 < cis' fis' a' >  |
@@ -348,7 +347,7 @@ d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'
 % absTime = 303360 barStart = 303360
 < b d' g' > 4 < b d' > 
   << { \voiceOne
-       cis' 4 ~ -\startTrillSpan s4*0 \stopTrillSpan _~ cis' 8 [ b 16 cis' ]
+       cis' 4 ~ -\startTrillSpan s4*0 \stopTrillSpan ^~ cis' 8 b 16 cis'
      }
      \new Voice
      { \voiceTwo
@@ -385,9 +384,9 @@ d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'
 %% 85
                 
 % absTime = 322560 barStart = 322560
-< a d' fis' > 4. < d'' fis'' > 8 _2_4
+< a d' fis' > 4. < d'' fis'' > 8 ^2^4
   << { \voiceOne
-       fis'' 8 _4 g'' fis'' e''
+       fis'' 8 ^4 g'' fis'' e''
      }
      \new Voice
      { \voiceTwo
@@ -397,7 +396,7 @@ d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'
                 
 % absTime = 326400 barStart = 326400
   << { \voiceOne
-       d'' 4. _2 d'' 8 _3 [ d'' _4 e'' d'' ] cis''
+       d'' 4. ^2 d'' 8 ^3 d'' ^4 e'' d'' cis''
      }
      \new Voice
      { \voiceTwo
@@ -410,7 +409,7 @@ d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'
                 
 % absTime = 334080 barStart = 334080
   << { \voiceOne
-       d'' 8 _5 c'' _4 b' _3 c'' _5 a' 4. _4 a' 8
+       d'' 8 ^5 c'' ^4 b' ^3 c'' ^5 a' 4. ^4 a' 8
      }
      \new Voice
      { \voiceTwo
@@ -419,9 +418,9 @@ d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'
   >> \oneVoice |
                 
 % absTime = 337920 barStart = 337920
-< d' fis' a' > 4. < fis'' a'' > 8 _2_4
+< d' fis' a' > 4. \mf < fis'' a'' > 8 ^2^4
   << { \voiceOne
-       < a'' fis'' > 8 < g'' b'' > < fis'' a'' > < e'' g'' > _1_3
+       < a'' fis'' > 8 < g'' b'' > < fis'' a'' > < e'' g'' > ^1^3
      }
      \new Voice
      { \voiceTwo
@@ -432,7 +431,7 @@ d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'
                 
 % absTime = 341760 barStart = 341760
   << { \voiceOne
-       < d'' fis'' > 4. _2_4 < fis'' d'' > 8 < fis'' d'' > _4 < g'' e'' > < fis'' d'' > < e'' cis'' >
+       < d'' fis'' > 4. ^2^4 < fis'' d'' > 8 < fis'' d'' > ^4 < g'' e'' > < fis'' d'' > < e'' cis'' >
      }
      \new Voice
      { \voiceTwo
@@ -442,9 +441,9 @@ d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'
 
                 
 % absTime = 345600 barStart = 345600
-< d'' b' > 8 _2_4 c'' b' c'' _4
+< d'' b' > 8 ^2^4 c'' b' c'' ^4
   << { \voiceOne
-       a' 4. _2 a' 8
+       a' 4. ^2 a' 8
      }
      \new Voice
      { \voiceTwo
@@ -457,7 +456,7 @@ d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'
                 
 % absTime = 353280 barStart = 353280
   << { \voiceOne
-       d'' 4 _5 d'' 2 cis'' 4 ^\markup { \finger "4-5" }  ~
+       d'' 4 ^5 d'' 2 cis'' 4 ^\markup { \finger "4-5" }  ~
      }
      \new Voice
      { \voiceTwo
@@ -501,7 +500,7 @@ d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'
                 
 % absTime = 368640 barStart = 368640
   << { \voiceOne
-       s4 fis'' 2 _5 e'' 4
+       s4 \f fis'' 2 ^5 e'' 4
      }
      \new Voice
      { \voiceTwo
@@ -511,7 +510,7 @@ d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'
                 
 % absTime = 372480 barStart = 372480
   << { \voiceOne
-       s4 d''' 2 _5 c''' 4
+       s4 d''' 2 ^5 c''' 4
      }
      \new Voice
      { \voiceTwo
@@ -545,9 +544,9 @@ d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'
   >> \oneVoice |
                 
 % absTime = 384000 barStart = 384000
-< d'' fis'' > 4 _3_5 < d' fis' > _1_3 < cis' e' > _1_2
+< d'' fis'' > 4 ^3^5 \ff < d' fis' > ^1^3 < cis' e' > ^1^2
   << { \voiceOne
-       < cis'' e'' > 4 _3_5
+       < cis'' e'' > 4 ^3^5
      }
      \new Voice
      { \voiceTwo
@@ -556,9 +555,9 @@ d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'
   >> \oneVoice |
                 
 % absTime = 387840 barStart = 387840
-< fis' b' d'' > 4 < b d' > _1_3 < a cis' > _1_2 
+< fis' b' d'' > 4 < b d' > ^1^3 < a cis' > ^1^2 
   << { \voiceOne
-       < a' cis'' > 4 _4_5
+       < a' cis'' > 4 ^4^5
      }
      \new Voice
      { \voiceTwo
@@ -567,26 +566,18 @@ d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'
   >> \oneVoice |
                 
 % absTime = 391680 barStart = 391680
-< d' g' b' > 4 _1_2_4 < d'' g'' b'' > < d'' fis'' a'' > < d' fis' a' >  |
+< d' g' b' > 4 ^1^2^4 < d'' g'' b'' > < d'' fis'' a'' > < d' fis' a' >  |
                 
 % absTime = 395520 barStart = 395520
-< b d' g' > 4. < g' b' e'' > 8 < cis' e' a' > 4 < cis' e' a' >  |
+< b d' g' > 4. _\markup { \italic "allargando" } < g' b' e'' > 8 < cis' e' a' > 4 < cis' e' a' >  |
 %% 105
                 
 % absTime = 399360 barStart = 399360
 < d' fis' a' > 2 ^1^3^5 r  |
                 \bar "|."
             } % Voice
-        >> % Staff ends
 
-        \context Staff = "main gauche" << 
-            \set Staff.instrumentName = \markup { \column { "main gauche " } }
-            \set Score.skipBars = ##t
-            \set Staff.printKeyCancellation = ##f
-            \new Voice \global
-            \new Voice \globalTempo
-
-            \context Voice = "voice 3" {
+            \new Staff {
                 \override Voice.TextScript #'padding = #2.0
                 \override MultiMeasureRest #'expand-limit = 1
 
@@ -934,8 +925,4 @@ g, 2 a,  |
         >> % Staff (final) ends
 
     >> % notes
-
-    \layout {
-        \context { \GrandStaff \accepts "Lyrics" }
-    }
 } % score
