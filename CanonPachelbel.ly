@@ -14,11 +14,11 @@
 #(set-default-paper-size "a4")
 global = { 
     \time 2/2
-    \skip 1*99  %% 1-99
+    \skip 1*105  %% 1-105
 }
 globalTempo = {
     \override Score.MetronomeMark #'transparent = ##t
-    \tempo 4 = 120  \skip 1*99 
+    \tempo 4 = 120  \skip 1*105 
 }
 \score {
 << % common
@@ -230,83 +230,148 @@ d' 8 [ d'' e'' g'' ] fis'' [ fis' a' fis'' ]  |
 d'' 8 [ g'' fis'' g'' ] e'' [ a' g' a' ]  |
                 
 % absTime = 230400 barStart = 230400
-R1*39 
+r8 [ < fis' d'' > e'' d'' ] < e' cis'' > [ cis' d' cis' ]  |
+                
 % absTime = 234240 barStart = 234240
-
+d' 8 [ b' a' b' ] < a' cis'' > [ cis' fis' e' ]  |
+                
 % absTime = 238080 barStart = 238080
-
+d' 8 [ d'' e'' g'' ] < d'' fis'' > [ fis' a' fis'' ]  |
+                
 % absTime = 241920 barStart = 241920
-
+< b' d'' > 8 [ g'' fis'' g'' ] < cis'' e'' > [ a' g' a' ]  |
+%% 65
+                
 % absTime = 245760 barStart = 245760
-
+r8 [ < a' d'' fis'' > < a' d'' fis'' > < a' d'' fis'' > ] r [ < a' cis'' e'' > < a' cis'' e'' > < a' cis'' e'' > ]  |
+                
 % absTime = 249600 barStart = 249600
-
+r8 [ < fis' b' d'' > < fis' b' d'' > < fis' b' d'' > ] r [ < cis'' fis'' a'' > < cis'' fis'' a'' > < cis'' fis'' a'' > ]  |
+                
 % absTime = 253440 barStart = 253440
-
+r8 [ < d'' g'' b'' > < d'' g'' b'' > < d'' g'' b'' > ] r [ < d'' fis'' a'' > < d'' fis'' a'' > < d'' fis'' a'' > ]  |
+                
 % absTime = 257280 barStart = 257280
-
+r8 [ < g'' b'' > < g'' b'' > < g'' b'' > ] < e'' cis''' > [ < a' cis'' > < g' cis'' > < a' cis'' > ]  |
+                
 % absTime = 261120 barStart = 261120
-
+d'' 8 [ d' 16 e' ] fis' 8 [ d' cis' cis'' 16 d'' ] e'' 8 [ cis'' ]  |
+%% 70
+                
 % absTime = 264960 barStart = 264960
-
+b' 8 [ b 16 cis' ] d' 8 [ b cis' a' 16 g' ] fis' 8 [ e' ]  |
+                
 % absTime = 268800 barStart = 268800
-
+d' 8 [ g' 16 fis' ] e' 8 [ g' fis' d' 16 e' ] fis' 8 [ a' ]  |
+                
 % absTime = 272640 barStart = 272640
-
+g' 8 [ b' 16 a' ] g' 8 [ fis' e' a' 16 g' ] fis' 8 [ e' ]  |
+                
 % absTime = 276480 barStart = 276480
-
+< d' fis' > 8 [ d'' 16 cis'' ] d'' 8 [ fis' < cis' a' > a' 16 b' ] cis'' 8 [ a' ]  |
+                
 % absTime = 280320 barStart = 280320
-
+< d' fis' > 8 [ d'' 16 e'' ] fis'' 8 [ d'' < a' fis'' > fis'' 16 e'' ] d'' 8 [ cis'' ]  |
+%% 75
+                
 % absTime = 284160 barStart = 284160
-
+d'' 8 [ < d' b' > 16 a' ] < g' b' > 8 [ < e' cis'' > < fis' d'' > fis'' 16 e'' ] d'' 8 [ < a' fis'' > ]  |
+                
 % absTime = 288000 barStart = 288000
-
+< b' g'' > 8 [ d'' 16 cis'' ] b' 8 [ b' < e' a' > < cis' e' > ] < cis' a' > [ < cis' a' > ]  |
+                
 % absTime = 291840 barStart = 291840
-
+< d' fis' a' > 2 r4 < cis' e' a' >  |
+                
 % absTime = 295680 barStart = 295680
-
+< fis b d' > 2 r4 < cis' fis' a' >  |
+                
 % absTime = 299520 barStart = 299520
-
+< b d' g' > 2 < d' fis' a' >  |
+%% 80
+                
 % absTime = 303360 barStart = 303360
-
+< b d' g' > 4 < b d' > < e a cis' > -\startTrillSpan s4*0 \stopTrillSpan _~ < e a cis' > 8 _~ [ < e a b > 16 _~ < e a cis' > ]  |
+                
 % absTime = 307200 barStart = 307200
-
+< fis a d' > 4 < fis' a' d'' > < e' a' cis'' > 2  |
+                
 % absTime = 311040 barStart = 311040
-
+< d' fis' b' > 2 < cis' fis' a' >  |
+                
 % absTime = 314880 barStart = 314880
-
+< b d' > 4. _~ < b e' > 8 < a d' fis' > 2  |
+                
 % absTime = 318720 barStart = 318720
-
+< d' g' b' > 2 < a cis' e' > 4. _~ < a cis' e' > 8  |
+%% 85
+                
 % absTime = 322560 barStart = 322560
-
+< a d' fis' > 4. < d'' fis'' > 8 [ < cis'' fis'' > _~ < cis'' g'' > _~ < cis'' fis'' > _~ ] < cis'' fis'' >  |
+                
 % absTime = 326400 barStart = 326400
-
+< b' d'' > 4. _~ < b' d'' > 8 [ < a' d'' > _~ < a' e'' > _~ < a' d'' > _~ ] < a' cis'' >  |
+                
 % absTime = 330240 barStart = 330240
-
+< g' b' > 2 < fis' d'' >  |
+                
 % absTime = 334080 barStart = 334080
-
+< g' d'' > 8 _~ [ < g' c'' > < d' b' > _~ < d' c'' > ] < d' e' a' > 4 _~ < cis' e' a' > 8 _~ [ < cis' e' a' > ]  |
+                
 % absTime = 337920 barStart = 337920
-
+< d' fis' a' > 4. < fis'' a'' > 8 [ < a'' fis'' cis'' > _~ < g'' b'' cis'' > _~ < fis'' a'' cis'' > _~ ] < e'' g'' cis'' >  |
+%% 90
+                
 % absTime = 341760 barStart = 341760
-
+< d'' fis'' b' > 4. _~ < fis'' d'' b' > 8 [ < fis'' d'' a' > _~ < g'' e'' a' > _~ < fis'' d'' a' > _~ ] < e'' cis'' a' >  |
+                
 % absTime = 345600 barStart = 345600
-
+< d'' b' > 8 [ c'' b' c'' ] < a' fis' > 4. _~ < a' fis' > 8  |
+                
 % absTime = 349440 barStart = 349440
-
+< g' b' > 4 d'' < a' cis'' > 4. < g' cis'' > 8  |
+                
 % absTime = 353280 barStart = 353280
-
+< fis' a' d'' > 4 _~ < fis' a' d'' > _~ < e' a' d'' > _~ < e' a' cis'' > _~  |
+                
 % absTime = 357120 barStart = 357120
-
+< d' fis' cis'' > 4 _~ < d' fis' b' > _~ < cis' fis' b' > _~ < cis' fis' a' > _~  |
+%% 95
+                
 % absTime = 360960 barStart = 360960
-
+< b d' a' > 4 _~ < b d' g' > _~ < a d' g' > _~ < a d' fis' > _~  |
+                
 % absTime = 364800 barStart = 364800
-
+< b d' fis' > 4. _~ < b d' e' > 8 < a cis' e' > 2  |
+                
 % absTime = 368640 barStart = 368640
-
+< d' fis' > 4 < d'' fis'' > _~ < fis'' a' cis'' > _~ < a' cis'' e'' >  |
+                
 % absTime = 372480 barStart = 372480
-
+< fis' b' d'' > 4 < d'' b'' d''' > _~ < d''' fis'' a'' > _~ < fis'' a'' c''' >  |
+                
 % absTime = 376320 barStart = 376320
- |
+< d'' g'' b'' > 2 < fis'' d''' > 4 _~ < fis'' a'' >  |
+%% 100
+                
+% absTime = 380160 barStart = 380160
+< d'' b'' > 2 < cis'' a'' > 4 _~ < cis'' g'' >  |
+                
+% absTime = 384000 barStart = 384000
+< d'' fis'' > 4 < d' fis' > < cis' e' > < e'' cis'' a' > 8 _~ [ < e'' cis'' g' > ]  |
+                
+% absTime = 387840 barStart = 387840
+< fis' b' d'' > 4 < b d' > < a cis' > < a' cis'' fis' > 8 _~ [ < a' cis'' e' > ]  |
+                
+% absTime = 391680 barStart = 391680
+< d' g' b' > 4 < d'' g'' b'' > < d'' fis'' a'' > < d' fis' a' >  |
+                
+% absTime = 395520 barStart = 395520
+< b d' g' > 4. < g' b' e'' > 8 < cis' fis' a' > 4 < cis' e' a' >  |
+%% 105
+                
+% absTime = 399360 barStart = 399360
+< d' fis' a' > 2 r  |
                 \bar "|."
             } % Voice
         >> % Staff ends
@@ -634,11 +699,33 @@ g, 2 d,  |
 g, 2 a,  |
                 
 % absTime = 368640 barStart = 368640
-R1*3 
+d 2 a,  |
+                
 % absTime = 372480 barStart = 372480
-
+b, 2 fis,  |
+                
 % absTime = 376320 barStart = 376320
- |
+g, 2 d,  |
+%% 100
+                
+% absTime = 380160 barStart = 380160
+g, 2 a,  |
+                
+% absTime = 384000 barStart = 384000
+d 2 a,  |
+                
+% absTime = 387840 barStart = 387840
+b, 2 fis,  |
+                
+% absTime = 391680 barStart = 391680
+g, 2 d,  |
+                
+% absTime = 395520 barStart = 395520
+g, 2 a,  |
+%% 105
+                
+% absTime = 399360 barStart = 399360
+< d, d > 2 r  |
                 \bar "|."
             } % Voice
         >> % Staff (final) ends
