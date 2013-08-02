@@ -5,10 +5,10 @@
 \header {
     arranger = "Arrangement Hans-Günter Heurmann"
     composer = "Johann Pachelbel (1653-1706)"
-    copyright = "Copyright (c) C. FOUCHER Copyright Holder"
+    copyright = "Retranscrit par C. FOUCHER"
     subtitle = "sur une base obstinée"
     title = "CANON"
-    tagline = "Created using Rosegarden 1.7.3 and LilyPond"
+    tagline = "Créé avec LilyPond"
 }
 #(set-global-staff-size 20)
 #(set-default-paper-size "a4")
@@ -25,7 +25,7 @@ globalTempo = {
         % force offset of colliding notes in chords:
         \override Score.NoteColumn #'force-hshift = #1.0
 
-        \context Staff = "track 1" << 
+        \context Staff = "Main droite" << 
             \set Staff.instrumentName = \markup { \column { "Main droite " } }
             \set Score.skipBars = ##t
             \set Staff.printKeyCancellation = ##f
@@ -76,17 +76,50 @@ b' 2 _1 cis''  |
 < g' b' > 2 _1_4 < e' cis'' > _1_5  |
                 
 % absTime = 46080 barStart = 46080
-d' 2 _1 fis' 4 _3 < a' cis' > _2_5 g'  |
+  << { \voiceOne
+       s4 fis' 4 _3 a' 4 _5 g' 4
+     }
+     \new Voice
+     { \voiceTwo
+       d' 2 _1 cis' 2 _2
+     }
+  >> \oneVoice |
+
                 
 % absTime = 49920 barStart = 49920
-fis' 4 _3 < b d' > _1_2 < fis' a > _1_5 e' _4  |
+fis' 4 _3 < b d' > _1_2
+  << { \voiceOne
+       fis' 4 _5 e' 4 _4
+     }
+     \new Voice
+     { \voiceTwo
+       a 2 _1
+     }
+  >> \oneVoice |
+
 %% 15
                 
 % absTime = 53760 barStart = 53760
-d' 4 _3 b _2 < d' a > _1_3 a'  |
+d' 4 _3 b 4 _2 
+  << { \voiceOne
+       d' 4 _3 a'
+     }
+     \new Voice
+     { \voiceTwo
+       a 2 _1
+     }
+  >> \oneVoice |
                 
 % absTime = 57600 barStart = 57600
-g' 4 _3 < d' b' > _1 < a' cis' > _2_5 g'  |
+g' 4 _3 < d' b' > _1
+  << { \voiceOne
+       a' 4 _5 g' 4
+     }
+     \new Voice
+     { \voiceTwo
+       cis' 2 _2
+     }
+  >> \oneVoice |
                 
 % absTime = 61440 barStart = 61440
 < d' fis' > 4 _1_3 d' < cis' e' > _1_2 cis'' _5  |
@@ -99,8 +132,16 @@ g' 4 _3 < d' b' > _1 < a' cis' > _2_5 g'  |
 %% 20
                 
 % absTime = 72960 barStart = 72960
-< b d' > 4 _1_2 d'' < cis'' a' e' > _1_2-\startTrillSpan s4*0 \stopTrillSpan_4 cis'' 8 [ b' 16 cis'' ]  |
-                
+< b d' > 4 _1_2 d''
+  << { \voiceOne
+       cis'' 4 ~ -\startTrillSpan s4*0 \stopTrillSpan_4 cis'' 8 [ b' 16 cis'' ]
+     }
+     \new Voice
+     { \voiceTwo
+       < a' e' > 2 _1_2
+     }
+  >> \oneVoice |
+       
 % absTime = 76800 barStart = 76800
 < fis' d'' > 8 _2_5 [ cis'' d'' d' _1 ] cis' _2 [ a' e' _2 fis' ]  |
                 
@@ -147,13 +188,24 @@ r4 < d' b' > _1_4 < fis' d'' > 2 _2_5  |
 %% 35
                 
 % absTime = 130560 barStart = 130560
-< b' d'' > 2 _2_4 a' 4 d'' 8 _3 [ ] 
-                % avertissement: mesure trop courte, complétée avec des silences
-                % 130560 + 3360 < 134400  &&  7/8 < 2/2
-                r8  |
+  << { \voiceOne
+       d'' 2.. _4 d'' 8 _3
+     }
+     \new Voice
+     { \voiceTwo
+       b' 2 _2 a'
+     }
+  >> \oneVoice |
                 
 % absTime = 134400 barStart = 134400
-< d'' b' > 4 _1_2 g'' < e'' cis'' > _2_3 a''  |
+  << { \voiceOne
+       d'' 4 _2 g'' e'' _3 a''
+     }
+     \new Voice
+     { \voiceTwo
+       b' 2 _1 cis'' _2
+     }
+  >> \oneVoice |
                 
 % absTime = 138240 barStart = 138240
 a'' 8 _5 [ fis'' 16 _2 g'' _3 ] a'' 8 _5 [ fis'' 16 g'' ] a'' _5 [ a' _1 b' cis'' ] d'' _1 [ e'' fis'' g'' ]  |
@@ -294,99 +346,247 @@ d'' 8 [ < d' b' > 16 _1_5 a' _3 ] < g' b' > 8 _2_4 [ < e' cis'' > _1_5 < fis' d'
 %% 80
                 
 % absTime = 303360 barStart = 303360
-< b d' g' > 4 < b d' > < cis' e a > -\startTrillSpan s4*0 \stopTrillSpan _~ cis' 8 [ b 16 cis' ]  |
+< b d' g' > 4 < b d' > 
+  << { \voiceOne
+       cis' 4 ~ -\startTrillSpan s4*0 \stopTrillSpan _~ cis' 8 [ b 16 cis' ]
+     }
+     \new Voice
+     { \voiceTwo
+       < e a > 2
+     }
+  >> \oneVoice |
                 
 % absTime = 307200 barStart = 307200
 < fis a d' > 4 < fis' a' d'' > < e' a' cis'' > 2  |
                 
 % absTime = 311040 barStart = 311040
-< d' fis' b' > 2 < cis' fis' a' >  |
-                
+< d' fis' b' > 2 < cis' fis' a' > |
+
 % absTime = 314880 barStart = 314880
-< d' b > 4. e' 8 < a d' fis' > 2  |
+  << { \voiceOne
+       d' 4. e' 8 fis' 2
+     }
+     \new Voice
+     { \voiceTwo
+        b 2 < a d'>
+     }
+  >> \oneVoice |
                 
 % absTime = 318720 barStart = 318720
-< d' g' b' > 2 < e' a cis' > 4. e' 8  |
+< d' g' b' > 2 
+  << { \voiceOne
+       e' 4. e' 8
+     }
+     \new Voice
+     { \voiceTwo
+        < a cis' > 2
+     }
+  >> \oneVoice |
 %% 85
                 
 % absTime = 322560 barStart = 322560
-< a d' fis' > 4. < d'' fis'' > 8 _2_4 [ < fis'' cis'' > _1_4 g'' fis'' ] fis''  |
+< a d' fis' > 4. < d'' fis'' > 8 _2_4
+  << { \voiceOne
+       fis'' 8 _4 g'' fis'' e''
+     }
+     \new Voice
+     { \voiceTwo
+        cis'' 2 _1
+     }
+  >> \oneVoice |
                 
 % absTime = 326400 barStart = 326400
-< d'' b' > 4. _2 d'' 8 _3 [ < d'' a' > _1_4 e'' d'' ] cis''  |
+  << { \voiceOne
+       d'' 4. _2 d'' 8 _3 [ d'' _4 e'' d'' ] cis''
+     }
+     \new Voice
+     { \voiceTwo
+        b' 2 a' _1
+     }
+  >> \oneVoice |
                 
 % absTime = 330240 barStart = 330240
 < g' b' > 2 < fis' d'' >  |
                 
 % absTime = 334080 barStart = 334080
-< d'' g' > 8 _1_5 [ c'' _4 < b' d' > _1_3 c'' _5 ] < d' e' a' > 4 _1_2_4 < cis' e' > _1_2 a' 8 [ ]  |
+  << { \voiceOne
+       d'' 8 _5 c'' _4 b' _3 c'' _5 a' 4. _4 a' 8
+     }
+     \new Voice
+     { \voiceTwo
+        g' 4 _1 d' _1 < d' e' > _1_2 < cis'! e' > _1_2
+     }
+  >> \oneVoice |
                 
 % absTime = 337920 barStart = 337920
-< d' fis' a' > 4. < fis'' a'' > 8 _2_4 [ < a'' fis'' cis'' > < g'' b'' > < fis'' a'' > ] < e'' g'' > _1_3  |
+< d' fis' a' > 4. < fis'' a'' > 8 _2_4
+  << { \voiceOne
+       < a'' fis'' > 8 < g'' b'' > < fis'' a'' > < e'' g'' > _1_3
+     }
+     \new Voice
+     { \voiceTwo
+        cis'' 2
+     }
+  >> \oneVoice |
 %% 90
                 
 % absTime = 341760 barStart = 341760
-< d'' fis'' b' > 4. _1_2_4 < fis'' d'' > 8 [ < fis'' d'' a' > _4 < g'' e'' > < fis'' d'' > ] < e'' cis'' >  |
+  << { \voiceOne
+       < d'' fis'' > 4. _2_4 < fis'' d'' > 8 < fis'' d'' > _4 < g'' e'' > < fis'' d'' > < e'' cis'' >
+     }
+     \new Voice
+     { \voiceTwo
+        b' 2 _1 a'
+     }
+  >> \oneVoice |
+
                 
 % absTime = 345600 barStart = 345600
-< d'' b' > 8 _2_4 [ c'' b' c'' _4 ] < a' fis' > 4. _1_2 a' 8  |
+< d'' b' > 8 _2_4 c'' b' c'' _4
+  << { \voiceOne
+       a' 4. _2 a' 8
+     }
+     \new Voice
+     { \voiceTwo
+        fis' 2 _1
+     }
+  >> \oneVoice |
                 
 % absTime = 349440 barStart = 349440
-< g' b' > 4 d'' < a' cis'' > 4. < g' cis'' > 8  |
+< g' b' > 4 d'' < a' cis''? > 4. < g' cis'' > 8  |
                 
 % absTime = 353280 barStart = 353280
-< d'' a' fis' > 4 _5 d'' 2 < e' a' > cis'' 4 _\markup { \finger "45" }  _~  |
+  << { \voiceOne
+       d'' 4 _5 d'' 2 cis'' 4 ^\markup { \finger "4-5" }  ~
+     }
+     \new Voice
+     { \voiceTwo
+        < a' fis' > 2 < e' a' >
+     }
+  >> \oneVoice |
                 
 % absTime = 357120 barStart = 357120
-< cis'' d' fis' > 4 b' 2 _\markup { \finger "45" }  < fis' cis' > a' 4 _\markup { \finger "45" }  _~  |
+  << { \voiceOne
+       cis'' 4 b' 2 ^\markup { \finger "4-5" }  a' 4 ^\markup { \finger "4-5" }  ~
+     }
+     \new Voice
+     { \voiceTwo
+        < d' fis' > 2 < fis' cis' >
+     }
+  >> \oneVoice |
+
 %% 95
                 
 % absTime = 360960 barStart = 360960
-< a' b d' > 4 g' 2 _\markup { \finger "45" }  < a d' > fis' 4 _~  |
+  << { \voiceOne
+       a' 4 g' 2 ^\markup { \finger "4-5" }  fis' 4 ~
+     }
+     \new Voice
+     { \voiceTwo
+        < b d' > 2 < a d' >
+     }
+  >> \oneVoice |
+
                 
 % absTime = 364800 barStart = 364800
-< fis' b d' > 4. e' 8 < a cis' e' > 2  |
+  << { \voiceOne
+       fis' 4. e' 8
+     }
+     \new Voice
+     { \voiceTwo
+       < b d' > 2
+     }
+  >> \oneVoice
+< a cis' e' > 2  |
                 
 % absTime = 368640 barStart = 368640
-< d' fis' > 4 _1_3 < d'' fis'' > _3_5 < a' cis'' > 2 e'' 4  |
+  << { \voiceOne
+       s4 fis'' 2 _5 e'' 4
+     }
+     \new Voice
+     { \voiceTwo
+       < d' fis' > 4 _1_3 d'' _3 < a' cis'' > 2
+     }
+  >> \oneVoice |
                 
 % absTime = 372480 barStart = 372480
-< fis' b' d'' > 4 < d'' b'' d''' > _1_3_5 < fis'' a'' > 2 c''' 4  |
+  << { \voiceOne
+       s4 d''' 2 _5 c''' 4
+     }
+     \new Voice
+     { \voiceTwo
+       < fis' b' d'' > 4 < d'' b'' > _1_3 < fis'' a'' > 2
+     }
+  >> \oneVoice |
                 
 % absTime = 376320 barStart = 376320
-< d'' g'' b'' > 2 < d''' fis'' > 4 a''  |
+< d'' g'' b'' > 2
+  << { \voiceOne
+       d''' 4 a''
+     }
+     \new Voice
+     { \voiceTwo
+       fis'' 2
+     }
+  >> \oneVoice |
+
+
 %% 100
                 
 % absTime = 380160 barStart = 380160
-< d'' b'' > 2 < a'' cis'' > 4 g''  |
+< d'' b'' > 2
+  << { \voiceOne
+       a'' 4 g''
+     }
+     \new Voice
+     { \voiceTwo
+       cis'' 2
+     }
+  >> \oneVoice |
                 
 % absTime = 384000 barStart = 384000
-< d'' fis'' > 4 _3_5 < d' fis' > _1_3 < cis' e' > _1_2 < a' cis'' e'' > 8 _2_3_5 [ g' _1 ]  |
+< d'' fis'' > 4 _3_5 < d' fis' > _1_3 < cis' e' > _1_2
+  << { \voiceOne
+       < cis'' e'' > 4 _3_5
+     }
+     \new Voice
+     { \voiceTwo
+       a' 8 _2 g' _1
+     }
+  >> \oneVoice |
                 
 % absTime = 387840 barStart = 387840
-< fis' b' d'' > 4 < b d' > _1_3 < a cis' > _1_2 < fis' a' cis'' > 8 _2_4_5 [ e' _1 ]  |
+< fis' b' d'' > 4 < b d' > _1_3 < a cis' > _1_2 
+  << { \voiceOne
+       < a' cis'' > 4 _4_5
+     }
+     \new Voice
+     { \voiceTwo
+       fis' 8 _2 e' _1
+     }
+  >> \oneVoice |
                 
 % absTime = 391680 barStart = 391680
 < d' g' b' > 4 _1_2_4 < d'' g'' b'' > < d'' fis'' a'' > < d' fis' a' >  |
                 
 % absTime = 395520 barStart = 395520
-< b d' g' > 4. < g' b' e'' > 8 < cis' fis' a' > 4 < cis' e' a' >  |
+< b d' g' > 4. < g' b' e'' > 8 < cis' e' a' > 4 < cis' e' a' >  |
 %% 105
                 
 % absTime = 399360 barStart = 399360
-< d' fis' a' > 2 _1_3_5 r  |
+< d' fis' a' > 2 ^1^3^5 r  |
                 \bar "|."
             } % Voice
         >> % Staff ends
 
-        \context Staff = "track 2" << 
-            \set Staff.instrumentName = \markup { \column { "Main gauche " } }
+        \context Staff = "main gauche" << 
+            \set Staff.instrumentName = \markup { \column { "main gauche " } }
             \set Score.skipBars = ##t
             \set Staff.printKeyCancellation = ##f
             \new Voice \global
             \new Voice \globalTempo
 
-            \context Voice = "voice 2" {
+            \context Voice = "voice 3" {
                 \override Voice.TextScript #'padding = #2.0
                 \override MultiMeasureRest #'expand-limit = 1
 
