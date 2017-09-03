@@ -55,26 +55,26 @@ rightOne = {
         
         e'8 e'^-- [d'] e' e' e' [fs'] fs'4 r8 \bar "||"
         
-        a'8 a' [b']  b' [a']  b'-- [d''] a' ([a']) fs'4 r8 \bar "||"
+        a'8 a' [b']  b' [a']  b'^-- [d''] a' ([a']) fs'4 r8 \bar "||"
         
         g'8 fs' g' [a'] a' [g' e'] e' a'4 (g'8--) [ a'^\prall b' a' g'] (a'4^^ fs') r8 \bar "||"
         
-        g'8 e' [fs'] fs' g' e' e'-- [d'] e' [fs'] fs'4 \bar "'"
-        d'8 e' [g'] g' fs' [g'] a'-- [g'] a' [b'] a' [g'] fs'4 fs' r8 \bar "||"
+        g'8 e' [fs'] fs' g' e' e'^-- [d'] e' [fs'] fs'4 \bar "'"
+        d'8 e' [g'] g' fs' [g'] a'^-- [g'] a' [b'] a' [g'] fs'4 fs' r8 \bar "||"
         
-        g'8 e' e'-- [d'] e' [fs'] fs'4 \bar "'"
+        g'8 e' e'^-- [d'] e' [fs'] fs'4 \bar "'"
         a'8 a' [fs'] g' [a'] fs'4 a'8 [g' e'] e' e'4 (g'8--) [a'^\prall b' a' g'] a' a' g'-- [fs'] e' [fs'] fs'4 r8 \bar "||"
         
-        g'8 e' e'-- [d'] e' [fs'] fs'4 \bar "'"
+        g'8 e' e'^-- [d'] e' [fs'] fs'4 \bar "'"
         a'8 a' [fs'] g' [a'] g'8-- [fs'] fs'4 \bar "'"
         a'8 [g' e'] e' e'4 (g'8--) [ a'^\prall b' a' g' a'] (a') fs'4 r8 \bar "||"
         
-        g'8 e' e'-- [d'] e' [fs'] fs'4 \bar "'"
+        g'8 e' e'^-- [d'] e' [fs'] fs'4 \bar "'"
         a'8 a' [b'] b' [d''] b'4 \bar "'"
         b'8 [a' g'] a'8 a'8 [b'] b' [a' g'] a'4^^ (b'8) a' [g'] (fs'4) r8 \bar "||"
         
         g'8 e' [fs'] fs' fs' g' e'^-- [d'] e' [fs'] fs'4 \bar "'"
-        a'8 a'8-- [g'] a' [b'] a'-- [g'] fs'4 fs' r8 \bar "||"
+        a'8 a'8^-- [g'] a' [b'] a'^-- [g'] fs'4 fs' r8 \bar "||"
         
         g'8 e' [fs'] fs' fs' g' e'^-- [d'] e' [fs'] fs'4 \bar "'"
         d'8 e' [g'] g'4 fs'8 g' a' g' a' [b'] a' [g'] fs'4 fs' r8 \bar "||"
@@ -86,12 +86,12 @@ rightOne = {
         
         a'8 [g'] a' [b'] a' g' [fs'] e' [fs'] fs'4 r8 \bar "||"
         
-        fs'8 g' e' d' e' e' [fs'] fs'4 a'8 [ g' e'] e' e'4 (g'8--) [a'^\prall b' a' g' a'] (a') fs'4 r8 \bar "||"
+        fs'8 g' e' d' e' e' [fs'] fs'4 a'8 [ g' e'] e' e'4 (g'8^--) [a'^\prall b' a' g' a'] (a') fs'4 r8 \bar "||"
          
-        a'8 a' [g' e'] e' e'4 (g'8--) [a'^\prall b' a' g'] a' [g' fs'] fs'4 \bar "'"
+        a'8 a' [g' e'] e' e'4 (g'8^--) [a'^\prall b' a' g'] a' [g' fs'] fs'4 \bar "'"
         d'8 e' [g'] g' g' g' fs' [e'] fs' [e' d' e' fs'] e'4 r8 \bar "||"
         
-        e' (a'^^) (g'--) [a'^\prall b' a' g'] a' [g' fs'] e'4 (fs')\bar "||"
+        e' (a'^^) (g'^--) [a'^\prall b' a' g'] a' [g' fs'] e'4 (fs')\bar "||"
 }
 
 rightTwo = {
@@ -133,6 +133,12 @@ rightTwo = {
   r8  d'1~ d'8~ \fusion d'2
 }
 
+leftOne = {
+}
+
+leftTwo = {
+}
+
 \score {
   <<
     % common
@@ -141,36 +147,60 @@ rightTwo = {
     % Allow fingerings inside the staff (configured from export options):
     \override Score.Fingering #'staff-padding = #'()
 
-    \context Staff = "track 1" <<
-      \set Staff.instrumentName = \markup { \center-column { "s " } }
-      \set Staff.midiInstrument = "church organ"
-      \set Score.skipBars = ##t
-      \set Staff.printKeyCancellation = ##f
+    \new PianoStaff <<
+      %\set Staff.instrumentName = \markup { \center-column { "s " } }
+      %\set Staff.midiInstrument = "church organ"
+      %\set Score.skipBars = ##t
+      %\set Staff.printKeyCancellation = ##f
       \cadenzaOn % pas de mesure
-      \key g \major
 
-      \context Voice = "voice 2" {
-        \override Voice.TextScript #'padding = #2.0
-        \override MultiMeasureRest #'expand-limit = 1
-        \override Stem #'direction = #UP % queue
-        \override Slur #'direction = #UP % liaison
+      \new Staff = "treble_staff" <<
+        \key g \major
         \override Staff.TimeSignature #'stencil = ##f 
 
-         \rightOne
-      } % Voice
-      \new Lyrics \with {alignBelowContext="track 1"} \lyricsto "voice 2" \lyricmode {
-        \override LyricText #'self-alignment-X = #LEFT
-        \set ignoreMelismata = ##t
-        \lyricsOne
-        \unset ignoreMelismata
-      } % Lyrics 1
+        \new Voice = "voice 2" {
+          \override Voice.TextScript #'padding = #2.0
+          \override MultiMeasureRest #'expand-limit = 1
+          \override Stem #'direction = #UP % queue
+          \override Slur #'direction = #UP % liaison
+  
+           \rightOne
+        } % Voice
+        
+        \new Lyrics \with { alignAboveContext = #"treble_staff" } \lyricsto "voice 2" \lyricmode {
+          \override LyricText #'self-alignment-X = #LEFT
+          \set ignoreMelismata = ##t
+          \lyricsOne
+          \unset ignoreMelismata
+        } % Lyrics 1
+        
+        \new Voice = "sol_accomp" {
+          \override Stem #'direction = #DOWN % queue
+          \override Slur #'direction = #DOWN % liaison        
+          \rightTwo
+        } % Voice
+      >>
       
-      \new Voice = "sol_accomp" {
-        \override Stem #'direction = #DOWN % queue
-        \override Slur #'direction = #DOWN % liaison        
-        \rightTwo
-      } % Voice
-      
+      \new Staff <<
+        \clef bass
+        \key g \major
+        \override Staff.TimeSignature #'stencil = ##f 
+
+        \new Voice = "voic" {
+          \override Voice.TextScript #'padding = #2.0
+          \override MultiMeasureRest #'expand-limit = 1
+          \override Stem #'direction = #UP % queue
+          \override Slur #'direction = #UP % liaison
+
+          \leftOne
+        } % Voice
+        
+        \new Voice = "fa_accomp" {
+          \override Stem #'direction = #DOWN % queue
+          \override Slur #'direction = #DOWN % liaison        
+          \leftTwo
+        } % Voice
+      >>
     >>
   >>
 
