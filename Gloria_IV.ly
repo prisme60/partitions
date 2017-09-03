@@ -12,6 +12,8 @@
   }
 }
 
+fusion = { \once \override NoteColumn.force-hshift = #1.9 }
+
 lyricsOne = \lyricmode {
         Glo -- _ _ ri -- a in ex -- cél -- sis De -- _ _ o
         Et _ in _ ter -- _ ra pax ho -- _ mi -- _ ni -- _ bus
@@ -46,12 +48,12 @@ lyricsOne = \lyricmode {
 rightOne = {
         d'8 [e' g'] g' g' fs' g' a' fs' a' [g' fs'] fs'4 \bar "||"
         
-        e'8 [a'] a' [b'] b' [d''] b'4 b'8 a'-- [g'] a' [b'] a'-- [g'] fs'4 \bar "'"
+        e'8 [a'] a' [b'] b' [d''] b'4 b'8 a'^-- [g'] a' [b'] a'^-- [g'] fs'4 \bar "'"
         g'8 e' d' e' [fs'] fs'4 fs'4 r8 \bar "||"
         
         fs'8 [e'] g' e' [fs'] fs'4 r8 \bar "||"
         
-        e'8 e'-- [d'] e' e' e' [fs'] fs'4 r8 \bar "||"
+        e'8 e'^-- [d'] e' e' e' [fs'] fs'4 r8 \bar "||"
         
         a'8 a' [b']  b' [a']  b'-- [d''] a' ([a']) fs'4 r8 \bar "||"
         
@@ -69,18 +71,18 @@ rightOne = {
         
         g'8 e' e'-- [d'] e' [fs'] fs'4 \bar "'"
         a'8 a' [b'] b' [d''] b'4 \bar "'"
-        b'8 [a' g'] a'4 a'8 [b'] b' [a' g'] a'4^^ (b'8) a' [g'] (fs'4) r8 \bar "||"
+        b'8 [a' g'] a'8 a'8 [b'] b' [a' g'] a'4^^ (b'8) a' [g'] (fs'4) r8 \bar "||"
         
-        g'8 e' [fs'] fs' fs' g' e'-- [d'] e' [fs'] fs'4 \bar "'"
-        a' a'8-- [g'] a' [b'] a'-- [g'] fs'4 fs' r8 \bar "||"
+        g'8 e' [fs'] fs' fs' g' e'^-- [d'] e' [fs'] fs'4 \bar "'"
+        a'8 a'8-- [g'] a' [b'] a'-- [g'] fs'4 fs' r8 \bar "||"
         
-        g'8 e' [fs'] fs' fs' g' e'-- [d'] e' [fs'] fs'4 \bar "'"
+        g'8 e' [fs'] fs' fs' g' e'^-- [d'] e' [fs'] fs'4 \bar "'"
         d'8 e' [g'] g'4 fs'8 g' a' g' a' [b'] a' [g'] fs'4 fs' r8 \bar "||"
         
         a'8 a' [b' d''] b'4 a'8 b' a' g' a' [b'] b'4 \bar "'"
-        b'8 a'-- [g'] a' [b'] a'8-- [g'] fs'4 fs' r8 \bar "||"
+        b'8 a'^-- [g'] a' [b'] a'8^-- [g'] fs'4 fs' r8 \bar "||"
         
-        g'8 fs' [e'] e' [fs'] e'-- [d'] e' e' [fs'] fs'4 fs' r8 \bar "||"
+        g'8 fs' [e'] e' [fs'] e'^-- [d'] e' e' [fs'] fs'4 fs' r8 \bar "||"
         
         a'8 [g'] a' [b'] a' g' [fs'] e' [fs'] fs'4 r8 \bar "||"
         
@@ -90,6 +92,45 @@ rightOne = {
         d'8 e' [g'] g' g' g' fs' [e'] fs' [e' d' e' fs'] e'4 r8 \bar "||"
         
         e' (a'^^) (g'--) [a'^\prall b' a' g'] a' [g' fs'] e'4 (fs')\bar "||"
+}
+
+rightTwo = {
+  \tieDown
+  s1 s2 s4 
+  
+  \fusion e'2. fs'4.~fs'2 e'4 d'4. \parenthesize b4 e'4~e'4 d'4~d'8
+  
+  \parenthesize b4. \fusion  e'4 d'4~d'8
+  
+  r8 \parenthesize b2 e'4 d'4~d'8~
+  
+  d'8 fs'2. d'4~d'4~d'8~
+  
+  d'2 b2 d'2~d'4.~d'4~d'4~d'8~
+  
+  d'8~ \fusion d'4~d'4. b4 e'4 d'4 r8 b4.~b4 d'2 e'4~e'4 d'4~d'8
+  
+  b4 b4 e'4 d'4.~d'2. b2 \fusion e'2 d'4.~d'4~d'2~d'4~d'8~
+  
+  d'4 \parenthesize b4 e'4 d'4.~d'2.~d'4  b2 e'4 d'4~d'4.~d'4 d'4~d'8~
+ 
+  d'4 \parenthesize b4 e'4 d'4. fs'2~fs'4 e'2 d'4~d'4.~d'4.~d'4 d'4~d'8~
+  
+  d'8~\fusion d'4~d'4. \parenthesize b4 e'4 d'4 r8 d'2 e'4~\fusion e'4 d'4~d'8~
+  
+  d'8~\fusion d'4~d'4. \parenthesize b4 e'4 d'4 r8 b4 e'2. d'4 e'4~\fusion e'4 d'4~d'8~
+  
+  d'8 fs'2.~fs'4.~fs'4~fs'4. e'2.~\fusion e'4 d'4~d'8~
+  
+  d'8~d'4 b4~b4. e'4~\fusion e'4 d'4~d'8~
+  
+  d'4~d'4. e'4 e'4 d'4~d'8~ 
+  
+  d'4 \parenthesize b4. e'4 d'4 b2 e'4 d'4~d'4.~d'4 d'4~d'8~
+  
+  d'8 e'4 b4 \fusion e'2~e'2. d'4 r8 \fusion e'2~e'4 b4 a4 \fusion d'4 b4~b8
+  
+  r8  d'1~ d'8~ \fusion d'2
 }
 
 \score {
@@ -116,7 +157,6 @@ rightOne = {
         \override Staff.TimeSignature #'stencil = ##f 
 
          \rightOne
-        
       } % Voice
       \new Lyrics \with {alignBelowContext="track 1"} \lyricsto "voice 2" \lyricmode {
         \override LyricText #'self-alignment-X = #LEFT
@@ -124,12 +164,19 @@ rightOne = {
         \lyricsOne
         \unset ignoreMelismata
       } % Lyrics 1
+      
+      \new Voice = "sol_accomp" {
+        \override Stem #'direction = #DOWN % queue
+        \override Slur #'direction = #DOWN % liaison        
+        \rightTwo
+      } % Voice
+      
     >>
   >>
 
 
   \layout {}
   \midi {
-    \tempo 4 = 80
+    \tempo 4 = 100
   }
 }
