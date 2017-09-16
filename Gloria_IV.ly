@@ -91,11 +91,10 @@ rightOne = {
         a'8 a' [g' e'] e' e'4 (g'8^--) [a'^\prall b' a' g'] a' [g' fs'] fs'4 \bar "'"
         d'8 e' [g'] g' g' g' fs' [e'] fs' [e' d' e' fs'] e'4 r8 \bar "||"
         
-        e' (a'^^) (g'^--) [a'^\prall b' a' g'] a' [g' fs'] e'4 (fs')\bar "||"
+        e' (a'4^^) (g'8^--) [a'^\prall b' a' g'] a' [g' fs'] e'4 (fs')\bar "||"
 }
 
 rightTwo = {
-  \tieDown
   s1 s2 s4 
   
   \fusion e'2. fs'4.~fs'2 e'4 d'4. \parenthesize b4 e'4~e'4 d'4~d'8
@@ -128,15 +127,84 @@ rightTwo = {
   
   d'4 \parenthesize b4. e'4 d'4 b2 e'4 d'4~d'4.~d'4 d'4~d'8~
   
-  d'8 e'4 b4 \fusion e'2~e'2. d'4 r8 \fusion e'2~e'4 b4 a4 \fusion d'4 b4~b8
+  d'8 e'4 b4 \fusion e'2~e'2. d'4 r8 \fusion e'2~e'8 b4 a4. \fusion d'4 b4~b8
   
-  r8  d'1~ d'8~ \fusion d'2
+  r8  d'1~ d'4~ \fusion d'2
 }
 
 leftOne = {
-}
+  s1 s2 s4
+  
+  r4 fs4 g4 b4. d'2 b4~b4.~b2 a2~a8
+  
+  b4.~b4 a4~a8~
+  
+  a8 b2. a4~a8~
+  
+  a8~a2. b4 a4~a8~
 
+  a4 fs4 e2 fs4 e4~e4. b4 a4~a8~
+
+  a8~a4~a4. g2 a4. g4.~g4 fs2 b4 a2~a8
+  
+  g4 b2 a4. fs4 b4 a4 g2 b2 g4 b8 a4 b4~b4 a4~a8
+  
+  b4~b2 a4. fs2 b4 a4 g2 b4~b4~b4.~b4 a4~a8
+  
+  b4~b2 a4.~a2 b2.~b4 g4 b8 a4. b4 a4~a8~
+  
+  a8~a4 a4. g2 a4. fs2 b4 a2~a8
+  
+  a8~a4 a4. g2 a4. g4 b2. a4 b4 a2~a8~
+  
+  a8~a4. b4.~b4.d'4 b4.~b2. a2~a8~
+  
+  a8~a4 g4~g4. b4 a2~a8~
+  
+  a4~a4.b2 a4~a8~
+  
+  a4 b4.~b4 a4 g2 b4~b4~b4.~b4 a4~a8
+  
+  r8 b4 g4 b2~b2.~b4.~b4.~b4 g4 fs4. a4 g4~g8~
+  
+  g8 fs4 e4 g4. b4. a2
+}
 leftTwo = {
+  s1 s2 s4
+    
+  e2. d4.~d2 e4 b4. g2 d2~d8
+  
+  g4.~g4 d4~d8~
+  
+  d8 g2. d4~d8~
+  
+  d8~d2.~d4~d4~d8~
+  
+  d\breve~ \hideNotes d8~ \unHideNotes d4~d8
+  
+  d\breve~ d2.~ d2~d4~d8
+  
+  e4 g2 d4.~d2. e2 g2 \fusion g4. fs4 b4 g4 d4~d8
+  
+  b4 g2 d4.~d1 e2 g4 b4 b4. b4 d4~d8
+  
+  b4 g2 d4.~d2 g2. g4 \fusion g4. fs4. g4 d4~d8~
+  
+  d8~d4~d4.~d2~d4. d2.~d2~d8
+  
+  d8~d4~d4.~d2~d4. g4 e2. fs4 g4 d2 ~d8~
+  
+  d8~d2.~d4.~d4g4.~g2. d2~d8~
+  
+  d8~d2~d4.d4~d2~d8
+  
+  f4~f4. e4 g4 d4~d8~
+  
+  d4 g4.~g4 d4 e2 g4 b4 b4. b4 d4~d8
+  
+  fs8 e2 g2~g4. e4. b4. g4. e2~\fusion e4.~e4~e4~e8~
+  
+  e8 d1~d4~d2
 }
 
 \score {
@@ -176,7 +244,8 @@ leftTwo = {
         
         \new Voice = "sol_accomp" {
           \override Stem #'direction = #DOWN % queue
-          \override Slur #'direction = #DOWN % liaison        
+          \override Slur #'direction = #DOWN % liaison
+          \tieDown
           \rightTwo
         } % Voice
       >>
@@ -191,13 +260,14 @@ leftTwo = {
           \override MultiMeasureRest #'expand-limit = 1
           \override Stem #'direction = #UP % queue
           \override Slur #'direction = #UP % liaison
-
+          \tieUp
           \leftOne
         } % Voice
         
         \new Voice = "fa_accomp" {
           \override Stem #'direction = #DOWN % queue
-          \override Slur #'direction = #DOWN % liaison        
+          \override Slur #'direction = #DOWN % liaison
+          \tieDown
           \leftTwo
         } % Voice
       >>
