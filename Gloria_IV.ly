@@ -198,13 +198,18 @@ leftTwo = {
   
   d8~d2~d4.d4~d2~d8
   
-  f4~f4. e4 g4 d4~d8~
+  fs4~fs4. e4 g4 d4~d8~
   
   d4 g4.~g4 d4 e2 g4 b4 b4. b4 d4~d8
   
   fs8 e2 g2~g4. e4. b4. g4. e2~\fusion e4.~e4~e4~e8~
   
   e8 d1~d4~d2
+}
+
+hack = {
+  s1 s1 s1 s1 s1 s1 s1 s1 s1 s1 s1 s1 s1 s1 s1 s1 s2 s4 s8
+  \hideNotes \shape #'((0 . -1.5) (0 . -5) (-3 . 0) (-0.5 . -0.5)) PhrasingSlur b2~ \( \change Staff = "bass_staff" b2 \) \unHideNotes
 }
 
 \score {
@@ -231,8 +236,8 @@ leftTwo = {
           \override MultiMeasureRest #'expand-limit = 1
           \override Stem #'direction = #UP % queue
           \override Slur #'direction = #UP % liaison
-  
-           \rightOne
+          \small  
+          \rightOne
         } % Voice
         
         \new Lyrics \with { alignAboveContext = #"treble_staff" } \lyricsto "voice 2" \lyricmode {
@@ -246,11 +251,20 @@ leftTwo = {
           \override Stem #'direction = #DOWN % queue
           \override Slur #'direction = #DOWN % liaison
           \tieDown
+          \small
           \rightTwo
+        } % Voice
+        
+        \new Voice = "hack" {
+          \override Stem #'direction = #DOWN % queue
+          \override Slur #'direction = #DOWN % liaison
+          \tieDown
+          \small
+          \hack
         } % Voice
       >>
       
-      \new Staff <<
+      \new Staff = "bass_staff" <<
         \clef bass
         \key g \major
         \override Staff.TimeSignature #'stencil = ##f 
@@ -261,6 +275,7 @@ leftTwo = {
           \override Stem #'direction = #UP % queue
           \override Slur #'direction = #UP % liaison
           \tieUp
+          \small
           \leftOne
         } % Voice
         
@@ -268,6 +283,7 @@ leftTwo = {
           \override Stem #'direction = #DOWN % queue
           \override Slur #'direction = #DOWN % liaison
           \tieDown
+          \small
           \leftTwo
         } % Voice
       >>
